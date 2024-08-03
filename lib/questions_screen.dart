@@ -12,6 +12,14 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(context) {
-    return const Text("This is a question!");
+    return const Center(
+      child: Text(
+        "This is a question!",
+        style: TextStyle(
+          fontSize: 30,
+          color: Colors.white,
+        ),
+      ),
+    );
   }
 }
