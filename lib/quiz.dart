@@ -18,7 +18,7 @@ class _QuizState extends State<Quiz> {
   // void initState() {
   //   activeScreen = StartScreen(switchScreen);
   //   super.initState();
-  // }
+  // } initState() is for initializing variables afterwards
 
   void switchScreen() {
     setState(() {
@@ -28,6 +28,12 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(context) {
+    Widget screenWidget = StartScreen(switchScreen);
+
+    if (activeScreen == "question-screen") {
+      screenWidget = const QuestionsScreen();
+    }
+
     return MaterialApp(
       home: Scaffold(
         body: Container(
@@ -41,9 +47,7 @@ class _QuizState extends State<Quiz> {
               ],
             ),
           ),
-          child: activeScreen == "start-screen"
-              ? StartScreen(switchScreen)
-              : const QuestionsScreen(),
+          child: screenWidget,
         ),
       ),
     );
